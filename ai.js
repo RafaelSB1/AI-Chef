@@ -7,7 +7,7 @@ export async function getRecipeFromMistral(ingredientsArr) {
         const response = await chatCompletion({
             accessToken: import.meta.env.VITE_HF_ACCESS_TOKEN,
             //model: "Qwen/Qwen3.8-27B", 
-            model: "deepseek-ai/DeepSeek-V4-Pro", 
+            model: "Qwen/Qwen2.5-72B-Instruct", 
             messages: [
                 { 
                     role: "system", 

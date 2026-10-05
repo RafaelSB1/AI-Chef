@@ -258,3 +258,84 @@ ul.ingredients-list > li {
         transform: rotate(360deg);
     }
 }
+
+/* --- Animações de Entrada --- */
+
+/* Opção A: Fade In simples (Suave) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Opção B: Fade In + Deslizamento leve para cima (Moderno) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Opção C: Suave com escala/zoom leve */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.suggested-recipe-container {
+    color: #475467;
+    line-height: 28px;
+    font-size: 1rem;
+    font-weight: 400;
+    border-top: 1px solid #E5E7EB;
+    padding-top: 30px;
+
+    /* Adicione estas linhas: */
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.get-recipe-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    background: #F0EFEB;
+    padding: 20px 28px;
+    width: 100%;
+    margin-bottom: 40px;
+
+    /* Adicione estas linhas: */
+    animation: fadeInUp 0.4s ease-out forwards;
+}
+
+ul.ingredients-list > li {
+    color: #475467;
+    line-height: 28px;
+    font-size: 1rem;
+    margin-bottom: 6px;
+
+    /* Adicione estas linhas: */
+    animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.add-ingredient-form > button,
+.get-recipe-container button {
+    transition: all 0.2s ease-in-out;
+}
+
+.add-ingredient-form > input {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
