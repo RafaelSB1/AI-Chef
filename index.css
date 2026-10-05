@@ -24,17 +24,27 @@ header > img {
 
 header > h1 {
     font-weight: 400;
+    font-size: 1.5rem;
+    margin: 0;
 }
 
+/* Centralização do container principal com largura proporcional */
 main {
-    padding: 30px 30px 10px;
+    padding: 40px 20px;
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Formulário de adição de ingredientes */
 .add-ingredient-form {
     display: flex;
     justify-content: center;
     gap: 12px;
     height: 38px;
+    width: 100%;
+    margin-bottom: 30px;
 }
 
 .add-ingredient-form > input {
@@ -43,8 +53,6 @@ main {
     padding: 9px 13px;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
     flex-grow: 1;
-    min-width: 150px;
-    max-width: 400px;
 }
 
 .add-ingredient-form > button {
@@ -56,6 +64,8 @@ main {
     width: 150px;
     font-size: 0.875rem;
     font-weight: 500;
+    cursor: pointer;
+    flex-shrink: 0;
 }
 
 .add-ingredient-form > button::before {
@@ -63,34 +73,54 @@ main {
     margin-right: 5px;
 }
 
+/* Lista de Ingredientes */
+section {
+    width: 100%;
+}
+
+h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #141413;
+    margin-bottom: 15px;
+}
+
 ul.ingredients-list {
-    margin-bottom: 48px;
+    margin-bottom: 40px;
+    padding-left: 20px;
 }
 
 ul.ingredients-list > li {
     color: #475467;
     line-height: 28px;
+    font-size: 1rem;
+    margin-bottom: 6px;
 }
 
+/* Cartão para gerar a receita */
 .get-recipe-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 8px;
     background: #F0EFEB;
-    padding: 10px 28px;
+    padding: 20px 28px;
+    width: 100%;
+    margin-bottom: 40px;
 }
 
 .get-recipe-container h3 {
     font-size: 1.125rem;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 24px;
+    margin: 0 0 5px 0;
 }
 
 .get-recipe-container p {
     color: #6B7280;
     font-size: 0.875rem;
     line-height: 20px;
+    margin: 0;
 }
 
 .get-recipe-container button {
@@ -102,16 +132,129 @@ ul.ingredients-list > li {
     padding: 9px 17px;
     font-family: Inter, sans-serif;
     font-size: 0.875rem;
+    font-weight: 500;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
+/* Formatação do Markdown da Receita */
 .suggested-recipe-container {
     color: #475467;
     line-height: 28px;
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 400;
+    border-top: 1px solid #E5E7EB;
+    padding-top: 30px;
 }
 
-.suggested-recipe-container ul li, .suggested-recipe-container ol li {
+.suggested-recipe-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.suggested-recipe-container ul li, 
+.suggested-recipe-container ol li {
     margin-bottom: 8px;
+}
+
+.add-ingredient-form > input:focus-visible {
+    outline: 2px solid #D17557;
+    outline-offset: 1px;
+    border-color: transparent;
+}
+
+.add-ingredient-form > button:focus-visible,
+.get-recipe-container button:focus-visible {
+    outline: 2px solid #141413;
+    outline-offset: 2px;
+}
+
+.add-ingredient-form > button,
+.get-recipe-container button {
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.add-ingredient-form > button:hover {
+    background-color: #2b2b28;
+}
+
+.add-ingredient-form > button:active,
+.get-recipe-container button:active {
+    transform: scale(0.98);
+}
+
+.get-recipe-container button:hover {
+    background-color: #b85d40;
+}
+
+@media (max-width: 480px) {
+    .get-recipe-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .get-recipe-container button {
+        width: 100%;
+    }
+
+    .add-ingredient-form {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .add-ingredient-form > button {
+        width: 100%;
+        height: 38px;
+    }
+}
+
+.suggested-recipe-container h1,
+.suggested-recipe-container h2,
+.suggested-recipe-container h3 {
+    color: #141413;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+.suggested-recipe-container p {
+    margin-bottom: 16px;
+}
+
+.suggested-recipe-container ul,
+.suggested-recipe-container ol {
+    padding-left: 24px;
+    margin-bottom: 20px;
+}
+
+/* Container de Carregamento */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px 0;
+    color: #475467;
+    font-size: 0.9rem;
+}
+
+/* Bolinha de Carregamento (Spinner) */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #E5E7EB;
+    border-top: 4px solid #D17557; /* Cor do botão principal */
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+}
+
+/* Animação de Rotação */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

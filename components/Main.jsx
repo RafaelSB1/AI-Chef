@@ -12,10 +12,18 @@ export default function Main() {
     }
 
     const [recipe, setRecipe] = React.useState("")
+    const [isLoading, setIsLoading] = React.useState(false)
 
     async function getRecipe() {
-        const recipeMarkdown = await getRecipeFromMistral(ingredients)
-        setRecipe(recipeMarkdown)
+        setIsLoading(true)
+        try {
+            const recipeMarkdown = await getRecipeFromMistral(ingredients)
+            setRecipe(recipeMarkdown)
+        } catch (error) {
+            console.error("Erro ao gerar receita:", error)
+        } finally {
+            setIsLoading(false)
+        }
     }
 
     return (
@@ -30,7 +38,13 @@ export default function Main() {
                 <button>Adicionar ingrediente</button>
             </form>
             {ingredients.length > 0 && <IngredientsList ingredients={ingredients} handleClick={getRecipe}/>}
-            {recipe && <ClaudeRecipe recipe={recipe}/>}
+            {isLoading && (
+                <div className="loading-container">
+                    <div className="spinner"></div>
+                    <p>O Chef Claude está preparanda a sua receita...</p>
+                </div>
+            )}
+            {!isLoading && recipe && <ClaudeRecipe recipe={recipe}/>}
         </main>
     )
 }
