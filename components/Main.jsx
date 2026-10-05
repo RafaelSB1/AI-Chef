@@ -28,6 +28,7 @@ export default function Main() {
 
     return (
         <main>
+            <p>Transforme o que você tem em casa em um prato especial! Conte para o Chef Claude pelo menos 4 ingredientes da sua despensa e receba uma receita sob medida.</p>
             <form action={addIngredient} className="add-ingredient-form">
                 <input
                     type="text"

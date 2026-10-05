@@ -6,8 +6,8 @@ export async function getRecipeFromMistral(ingredientsArr) {
     try {
         const response = await chatCompletion({
             accessToken: import.meta.env.VITE_HF_ACCESS_TOKEN,
-            // Substitua por um modelo ativo no router gratuito
-            model: "Qwen/Qwen2.5-72B-Instruct", 
+            //model: "Qwen/Qwen3.8-27B", 
+            model: "deepseek-ai/DeepSeek-V4-Pro", 
             messages: [
                 { 
                     role: "system", 
@@ -15,7 +15,7 @@ export async function getRecipeFromMistral(ingredientsArr) {
                 },
                 { 
                     role: "user", 
-                    content: `Tenho estes ingredientes: ${ingredientsString}. O que posso preparar?` 
+                    content: `Tenho apenas estes ingredientes: ${ingredientsString}. Gere uma receita estruturada com esses ingredientes, listando ingredientes e passo a passo` 
                 },
             ],
             max_tokens: 1024,

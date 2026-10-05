@@ -30,7 +30,7 @@ header > h1 {
 
 /* Centralização do container principal com largura proporcional */
 main {
-    padding: 40px 20px;
+    padding: 20px 20px;
     max-width: 700px;
     margin: 0 auto;
     display: flex;
