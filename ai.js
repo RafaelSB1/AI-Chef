@@ -6,16 +6,16 @@ export async function getRecipeFromMistral(ingredientsArr) {
     try {
         const response = await chatCompletion({
             accessToken: import.meta.env.VITE_HF_ACCESS_TOKEN,
-            //model: "Qwen/Qwen3.8-27B", 
-            model: "Qwen/Qwen2.5-72B-Instruct", 
+            model: "Qwen/Qwen3.8-27B", 
+            // model: "Qwen/Qwen2.5-72B-Instruct", 
             messages: [
                 { 
                     role: "system", 
-                    content: "Você é um assistente culinário útil. Com base nos ingredientes fornecidos, sugira uma receita." 
+                    content: "Você é um assistente culinário útil. Com base nos ingredientes fornecidos, sugira uma receita listando ingredientes e modo de preparo." 
                 },
                 { 
                     role: "user", 
-                    content: `Tenho apenas estes ingredientes: ${ingredientsString}. Gere uma receita estruturada com esses ingredientes, listando ingredientes e passo a passo` 
+                    content: `Tenho apenas estes ingredientes: ${ingredientsString}. Gere uma receita` 
                 },
             ],
             max_tokens: 1024,

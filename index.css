@@ -237,6 +237,7 @@ ul.ingredients-list > li {
     margin: 40px 0;
     color: #475467;
     font-size: 0.9rem;
+    animation: fadeIn 0.3s ease-in-out forwards;
 }
 
 /* Bolinha de Carregamento (Spinner) */

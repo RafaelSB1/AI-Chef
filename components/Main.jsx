@@ -42,7 +42,7 @@ export default function Main() {
             {isLoading && (
                 <div className="loading-container">
                     <div className="spinner"></div>
-                    <p>O Chef Claude está preparanda a sua receita...</p>
+                    <p>O Chef Claude está preparando a sua receita...</p>
                 </div>
             )}
             {!isLoading && recipe && <ClaudeRecipe recipe={recipe}/>}
