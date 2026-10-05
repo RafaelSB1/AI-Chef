@@ -6,8 +6,8 @@ export async function getRecipeFromMistral(ingredientsArr) {
     try {
         const response = await chatCompletion({
             accessToken: import.meta.env.VITE_HF_ACCESS_TOKEN,
-            model: "Qwen/Qwen3.8-27B", 
-            // model: "Qwen/Qwen2.5-72B-Instruct", 
+            // model: "Qwen/Qwen3.8-27B", 
+            model: "Qwen/Qwen2.5-72B-Instruct", 
             messages: [
                 { 
                     role: "system", 
@@ -15,7 +15,7 @@ export async function getRecipeFromMistral(ingredientsArr) {
                 },
                 { 
                     role: "user", 
-                    content: `Tenho apenas estes ingredientes: ${ingredientsString}. Gere uma receita` 
+                    content: `Tenho estes ingredientes: ${ingredientsString}. Gere uma receita` 
                 },
             ],
             max_tokens: 1024,
