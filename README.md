@@ -6,7 +6,7 @@ Uma aplicação web interativa em **React** + **Vite** que utiliza Inteligência
 
 ## 🚀 Demonstração
 
-[Acesse a aplicação online na Vercel](https://SEU-USUARIO-VERCEL.vercel.app) *(substitua pelo seu link da Vercel)*
+[Acesse a aplicação online na Vercel](https://ai-chef-seven-phi.vercel.app/)
 
 ---
 
@@ -41,5 +41,5 @@ Uma aplicação web interativa em **React** + **Vite** que utiliza Inteligência
 
 1. **Clone o repositório:**
    ```bash
-   git clone [https://github.com/SEU_USUARIO/chef-claude.git](https://github.com/SEU_USUARIO/chef-claude.git)
+   git clone [https://github.com/RafaelSB1/AI-Chef](https://github.com/RafaelSB1/AI-Chef)
    cd chef-claude
